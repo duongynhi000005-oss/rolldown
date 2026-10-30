@@ -200,6 +200,7 @@ impl FileEmitter {
                 .as_deref()
                 .is_some_and(|n| output.names.iter().all(|e| (n.len(), n) < (e.len(), e.as_str())))
             {
+              self.names.remove(&output.filename);
               self.generate_file_name(
                 &mut file,
                 &hash,
